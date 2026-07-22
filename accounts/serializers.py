@@ -111,7 +111,15 @@ class RegisterSerializer(serializers.Serializer):
         return value
 
     def validate(self, data):
-        if data["role"] == "doctor":
+        email = data.get("email")
+        role = data.get("role")
+
+        if User.objects.filter(email=email, role=role).exists():
+            raise serializers.ValidationError(
+                {"email": f"An account with this email already exists for the {role} role."}
+            )
+
+        if role == "doctor":
             if not data.get("specialist"):
                 raise serializers.ValidationError({"specialist": "Specialist is required for doctors."})
             if not data.get("degree_certificate"):

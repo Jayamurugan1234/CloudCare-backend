@@ -203,7 +203,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 
-EMAIL_TIMEOUT = 10
 
 
 
@@ -214,3 +213,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "CareCloud <vjayamurugan83@gmail.com>"
+EMAIL_TIMEOUT = 10
