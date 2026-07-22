@@ -15,6 +15,7 @@ from core.utils import send_patient_email
 
 class PatientRegisterView(APIView):
     permission_classes = []
+    authentication_classes = []
 
     def post(self, request):
         serializer = PatientSerializer(data=request.data)

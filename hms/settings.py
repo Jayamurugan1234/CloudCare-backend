@@ -112,7 +112,10 @@ WSGI_APPLICATION = 'hms.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+        default=os.environ.get(
+            "DATABASE_URL",
+            "postgres://postgres:123456@localhost:5432/hms_db"
+        ),
         conn_max_age=600,
     )
 }
