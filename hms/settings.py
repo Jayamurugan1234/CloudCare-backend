@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
+import dj_database_url
 
 
 load_dotenv()
@@ -97,16 +98,25 @@ WSGI_APPLICATION = 'hms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "hms_db",
+#         "USER": "postgres",
+#         "PASSWORD": "123456",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "hms_db",
-        "USER": "postgres",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+    )
 }
+
 
 
 # Password validation
