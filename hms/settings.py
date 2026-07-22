@@ -33,8 +33,8 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 
 
-LOWED_HOSTS = os.environ.get(
- "DJANGO_ALLOWED_HOSTS",
+ALLOWED_HOSTS = os.environ.get(
+ "https://cloudcare-backend.onrender.com/",
  "localhost,127.0.0.1",
 ).split(",")
 
