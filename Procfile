@@ -1,1 +1,1 @@
-web: gunicorn hms.wsgi
+web: gunicorn hms.wsgi --workers 1 --timeout 60
