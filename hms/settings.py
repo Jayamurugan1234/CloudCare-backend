@@ -34,8 +34,8 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 
 
 ALLOWED_HOSTS = os.environ.get(
- "https://cloudcare-backend.onrender.com/",
- "localhost,127.0.0.1",
+ "DJANGO_ALLOWED_HOSTS",
+ "localhost,127.0.0.1,cloudcare-backend.onrender.com",
 ).split(",")
 
 
@@ -148,8 +148,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://cloud-care-mu.vercel.app/"
-    "http://localhost:5173"]
+    "https://cloud-care-mu.vercel.app",
+    "http://localhost:5173",]
 
 
 CORS_ALLOW_ALL_ORIGINS = False
